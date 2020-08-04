@@ -1,0 +1,21 @@
+﻿<Window x:Class="TestFunW.WindowOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestFunW"
+        mc:Ignorable="d"
+        Title="WindowOrder" Height="256.118" Width="503.782" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Номер заказа" HorizontalAlignment="Left" Margin="41,31,0,0" VerticalAlignment="Top"/>
+        <Label Content="Название товара" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top"/>
+        <Label Content="Сотрудник" HorizontalAlignment="Left" Margin="366,31,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="28,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="187,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboSTAFF" ItemsSource="{Binding}" SelectedValuePath="Id" DisplayMemberPath="Surname" HorizontalAlignment="Left" Margin="343,77,0,0" VerticalAlignment="Top" Width="120" IsEditable="True">
+        </ComboBox>
+        <Button x:Name="btSave" Content="Сохранить" HorizontalAlignment="Left" Margin="63,176,0,0" VerticalAlignment="Top" Width="126" Click="btSave_Click" Background="#FF44C514"/>
+        <Button x:Name="btClose" Content="Закрыть" HorizontalAlignment="Left" Margin="310,176,0,0" VerticalAlignment="Top" Width="125" Click="btClose_Click" Background="#FFFF7F7F"/>
+
+    </Grid>
+</Window>
