@@ -7,32 +7,60 @@
         mc:Ignorable="d"
         Title="Base" Height="530" Width="800" ResizeMode="NoResize">
     <Grid Background="White" Margin="0,0,0,36">
-        <DataGrid AutoGenerateColumns="False" x:Name="staffGrid" HorizontalAlignment="Left" Height="123" Margin="20,45,0,0" VerticalAlignment="Top" Width="753">
+        <DataGrid AutoGenerateColumns="False" x:Name="staffGrid" HorizontalAlignment="Left" Height="123" Margin="26,45,0,0" VerticalAlignment="Top" Width="735" HorizontalScrollBarVisibility="Disabled" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Date}" Header="Дата рождения" Width="120">
-                </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Gender}" Header="Пол" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Subdivision}" Header="Подразделение" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Surname}" Header="Фамилия" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Имя" Width="100"/>
+                <DataGridTextColumn Binding="{Binding Patronymic}" Header="Отчество" Width="100"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Дата рождения" Width="100"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <DatePicker SelectedDate="{Binding Date}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding GenderValues}" Header="Пол" Width="70"/>
+
+                <DataGridTextColumn  Header="Подразделение" Width="120" Binding="{Binding NameSubdivisions, Source= StaticResource Subdivisions }"/>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="Действие"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="btUpdate" Content="Обновить" Click="btUpdate_Click"/>
+                                <Button x:Name="btDelete" Content="Удалить" Click="btDelete_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddButton" Content="Добавить нового сотрудника" HorizontalAlignment="Left" Margin="581,183,0,0" VerticalAlignment="Top" Width="180" Click="Button_Click" Background="#FF40A013"/>
-        <DataGrid x:Name="subdivisionGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="100" Margin="480,277,0,0" VerticalAlignment="Top" Width="240">
+        <DataGrid x:Name="subdivisionGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="100" Margin="480,277,0,0" VerticalAlignment="Top" Width="241" HorizontalScrollBarVisibility="Disabled">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Название" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Surname}" Header="Руководитель" Width="120"/>
+                <DataGridTextColumn Binding="{Binding NameSubdivision}" Header="Название" Width="120"/>
+                <DataGridTextColumn Binding="{Binding StaffId}" Header="Руководитель" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="792" Background="#FF55B811">
             <Label Content="Сотрудники" HorizontalAlignment="Left" Margin="29,10,0,0" VerticalAlignment="Top"/>
         </Grid>
-        <DataGrid x:Name="ordersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="100" Margin="29,277,0,0" VerticalAlignment="Top" Width="314">
+        <DataGrid x:Name="ordersGrid" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="100" Margin="29,277,0,0" VerticalAlignment="Top" Width="360" HorizontalScrollBarVisibility="Disabled">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Number}" Header="Номер заказа" Width="120"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Название товара" Width="120"/>
-                <DataGridTextColumn Binding="{Binding Employer}" Header="Сотрудник" Width="120"/>
+                <DataGridTextColumn Binding="{Binding Staff_Id}" Header="Сотрудник" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
         <Grid HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="395" Background="#FF55B811" Margin="0,218,0,0">

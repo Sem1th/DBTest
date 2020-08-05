@@ -39,12 +39,13 @@ namespace TestFunW
         public void UpdateData()
         {
             db = new DBConnection();
-            db.Staffs.Load(); // загружаем данные
-            db.Subdivisions.Load();
-            db.Orders.Load();
-            staffGrid.ItemsSource = db.Staffs.Local.ToBindingList(); // устанавливаем привязку к кэшу
-            subdivisionGrid.ItemsSource = db.Subdivisions.Local.ToBindingList();
-            ordersGrid.ItemsSource = db.Orders.Local.ToBindingList();
+            db.Staff.Load(); // загружаем данные
+            db.Subdivision.Load();
+            db.Order.Load();
+            staffGrid.ItemsSource = db.Staff.Local.ToBindingList(); // устанавливаем привязку к кэшу
+           // staffGrid.ItemsSource = db.Subdivision.Local.ToBindingList();
+            subdivisionGrid.ItemsSource = db.Subdivision.Local.ToBindingList();
+            ordersGrid.ItemsSource = db.Order.Local.ToBindingList();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -73,6 +74,20 @@ namespace TestFunW
 
             // Open a window
             window.ShowDialog();
+        }
+
+
+        private void btUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            UpdateStaff u = new UpdateStaff();
+            u.Owner = this;
+            u.ShowDialog();
+
+        }
+
+        private void btDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

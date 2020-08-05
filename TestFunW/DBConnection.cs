@@ -14,10 +14,30 @@ namespace TestFunW
             : base("DbConnection")
         { }
 
-        public DbSet<Staff> Staffs { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<Subdivision> Subdivisions { get; set; }
+        public DbSet<Staff> Staff { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Subdivision> Subdivision { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Staff>()
+                .HasMany(e => e.Subdivision1)
+               .WithOptional(e => e.Staff1)
+                .HasForeignKey(e => e.StaffId);
+
+           modelBuilder.Entity<Subdivision>()
+               .Property(e => e.NameSubdivision)
+               .IsFixedLength();
+
+            modelBuilder.Entity<Subdivision>()
+               .HasMany(e => e.Staff)
+               .WithOptional(e => e.Subdivision)
+               .HasForeignKey(e => e.SubdivisionId);
+        }
+
     }
+
+    
 
 
 }

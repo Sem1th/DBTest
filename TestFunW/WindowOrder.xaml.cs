@@ -33,7 +33,7 @@ namespace TestFunW
         {
             using (db = new DBConnection())
             {
-                var item = db.Staffs.ToList();
+                var item = db.Staff.ToList() ;
                 Emp = item;
                 DataContext = Emp;
             }
@@ -49,14 +49,32 @@ namespace TestFunW
 
                     
 
-                    Order l = new Order();
+                    Order order = new Order();
                    
-                    l.Number = tbNumber.Text;
-                    l.Name = tbName.Text;
-                    l.Employer = comboSTAFF.Text;
+                    order.Number = tbNumber.Text;
+                    order.Name = tbName.Text;
+                    // l.Employer = comboSTAFF.Text;
+                    // order.StaffId = int.Parse(comboSTAFF.Text);
 
-                    db.Orders.Add(l);
-                    db.SaveChanges();
+                   // Staff second = new Staff();
+                   // second.Surname = comboSTAFF.Text;
+
+
+
+
+                    using (var transaction = db.Database.BeginTransaction())
+                    {
+
+                        db.Order.Add(order);
+                        db.SaveChanges();
+
+                       // second.StaffId = (int)order.StaffId;
+                    
+
+                       // db.SaveChanges();
+                        transaction.Commit();
+
+                    }
 
                 }
 
@@ -68,8 +86,9 @@ namespace TestFunW
              //очистка полей после внесения данных
 
              tbNumber.Clear();
-            tbName.Clear();
-         
+             tbName.Clear();
+            comboSTAFF.SelectedIndex = -1;
+
         }
 
         private void btClose_Click(object sender, RoutedEventArgs e)
@@ -77,6 +96,6 @@ namespace TestFunW
             Close();
         }
 
-        
+        }
     }
-}
+

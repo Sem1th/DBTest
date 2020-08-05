@@ -26,6 +26,10 @@ namespace TestFunW
         public NewStaff()
         {
             InitializeComponent();
+            Gen.ItemsSource = Enum.GetValues(typeof(Gender));
+            Gen.SelectedIndex = 0;
+            
+
         }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
@@ -41,8 +45,8 @@ namespace TestFunW
                 MainWindow main = Owner as MainWindow;
                 if (main != null)
                     using (db = new DBConnection())
-                {
-                       // string Date = Convert.ToDateTime(date.Text).ToString("yyyyMMdd"); //конвертируем чтоб работало с SQL
+                    {
+                        // string Date = Convert.ToDateTime(date.Text).ToString("yyyyMMdd"); //конвертируем чтоб работало с SQL
 
                         //  DateTime Date = DateTime.Parse(date.Text);
                         //  string cc = Convert.ToString(comboBox1.SelectedValue);
@@ -50,24 +54,34 @@ namespace TestFunW
 
                         // DateTime iDate;
 
-                        Staff l = new Staff();
-                    l.Surname = tbSurname.Text;
-                    l.Name = tbName.Text;
-                    l.Patronymic = tbPatronymic.Text;
-                    l.Gender = Gen.Text;
-                    
+
+
+                        Staff first = new Staff();
+                        first.Surname = tbSurname.Text;
+                        first.Name = tbName.Text;
+                        first.Patronymic = tbPatronymic.Text;
+                        first.Date = date.SelectedDate.Value.Date;
+                        first.GenderValues = (Gender)Gen.SelectedValue;
+
+
+
+                        Subdivision second = new Subdivision();
+                        second.NameSubdivision = Sub.Text;
 
                        
-                        
 
+                        using (var transaction = db.Database.BeginTransaction())
+                        {
 
-                        Subdivision k = new Subdivision();
-                        k.Name = Sub.Text;
+                            db.Staff.Add(first);
+                            db.SaveChanges();
+                            second.StaffId = first.StaffId;
+                            db.Subdivision.Add(second);
+                            first.SubdivisionId = second.SubdivisionId;
+                            db.SaveChanges();
+                            transaction.Commit();
 
-                        db.Staffs.Add(l);
-                        db.Subdivisions.Add(k);
-                        db.SaveChanges();
-
+                        }
                     }
 
 
@@ -80,7 +94,9 @@ namespace TestFunW
             tbSurname.Clear();
             tbName.Clear();
             tbPatronymic.Clear();
-           // dateTimePicker1.ResetText(); // сброс даты
+            
+            date.SelectedDate = DateTime.Now; // сброс даты
+            Gen.SelectedIndex = -1;
             Sub.SelectedIndex = -1; // сбрасы индекса выборки 'отдела'
            
 

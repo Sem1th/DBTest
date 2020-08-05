@@ -12,7 +12,7 @@
         <Label Content="Сотрудник" HorizontalAlignment="Left" Margin="366,31,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbNumber" HorizontalAlignment="Left" Height="23" Margin="28,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="187,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="comboSTAFF" ItemsSource="{Binding}" SelectedValuePath="Id" DisplayMemberPath="Surname" HorizontalAlignment="Left" Margin="343,77,0,0" VerticalAlignment="Top" Width="120" IsEditable="True">
+        <ComboBox x:Name="comboSTAFF" ItemsSource="{Binding}" SelectedValuePath="Id" DisplayMemberPath="Surname" HorizontalAlignment="Left" Margin="343,77,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" >
         </ComboBox>
         <Button x:Name="btSave" Content="Сохранить" HorizontalAlignment="Left" Margin="63,176,0,0" VerticalAlignment="Top" Width="126" Click="btSave_Click" Background="#FF44C514"/>
         <Button x:Name="btClose" Content="Закрыть" HorizontalAlignment="Left" Margin="310,176,0,0" VerticalAlignment="Top" Width="125" Click="btClose_Click" Background="#FFFF7F7F"/>
