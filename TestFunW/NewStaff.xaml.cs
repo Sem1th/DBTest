@@ -20,7 +20,7 @@ namespace TestFunW
     /// </summary>
     public partial class NewStaff : Window
     {
-        //string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog = testFun; Integrated Security = True";
+        
         DBConnection db;
 
         public NewStaff()
@@ -38,21 +38,16 @@ namespace TestFunW
             if (tbSurname.Text == "") // поверка на пустоту поля 'фамилия'
             {
                 MessageBox.Show("Поле 'Фамилия' не может быть пустым!", "Ввод значения", MessageBoxButton.OK, MessageBoxImage.Error);
+                Gen.SelectedIndex = 0;
 
             }
             else
             {
+                
                 MainWindow main = Owner as MainWindow;
                 if (main != null)
                     using (db = new DBConnection())
                     {
-                        // string Date = Convert.ToDateTime(date.Text).ToString("yyyyMMdd"); //конвертируем чтоб работало с SQL
-
-                        //  DateTime Date = DateTime.Parse(date.Text);
-                        //  string cc = Convert.ToString(comboBox1.SelectedValue);
-
-
-                        // DateTime iDate;
 
 
 
@@ -96,7 +91,7 @@ namespace TestFunW
             tbPatronymic.Clear();
             
             date.SelectedDate = DateTime.Now; // сброс даты
-            Gen.SelectedIndex = -1;
+            Gen.SelectedIndex = 0;
             Sub.SelectedIndex = -1; // сбрасы индекса выборки 'отдела'
            
 

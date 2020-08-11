@@ -50,3 +50,32 @@ C:\Users\sobash\source\repos\TestFunW — копия\TestFunW\obj\Debug\TestFunW
 C:\Users\sobash\source\repos\TestFunW — копия\TestFunW\obj\Debug\TestFunW.csproj.GenerateResource.cache
 C:\Users\sobash\source\repos\TestFunW — копия\TestFunW\obj\Debug\TestFunW.csproj.CoreCompileInputs.cache
 C:\Users\sobash\source\repos\TestFunW — копия\TestFunW\obj\Debug\TestFunW.csproj.CopyComplete
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\bin\Debug\TestFunW.exe.config
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\bin\Debug\TestFunW.exe
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\bin\Debug\TestFunW.pdb
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\bin\Debug\EntityFramework.dll
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\bin\Debug\EntityFramework.xml
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.csprojAssemblyReference.cache
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\MainWindow.g.cs
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\NewStaff.g.cs
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\UpdateStaff.g.cs
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\WindowOrder.g.cs
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\App.g.cs
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW_MarkupCompile.cache
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW_MarkupCompile.lref
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\MainWindow.baml
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\NewStaff.baml
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\UpdateStaff.baml
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\WindowOrder.baml
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.g.resources
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.Properties.Resources.resources
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.csproj.GenerateResource.cache
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.csproj.CoreCompileInputs.cache
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.csproj.CopyComplete
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.exe
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\TestFunW.pdb
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\UpdateOrder.g.cs
+C:\Users\sobash\source\repos\TestFunWv1\TestFunW\obj\Debug\UpdateOrder.baml

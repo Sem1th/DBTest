@@ -1,0 +1,25 @@
+﻿<Window x:Class="TestFunW.UpdateOrder"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestFunW"
+        mc:Ignorable="d"
+        Title="WindowOrderUpdate" Height="256.118" Width="503.782" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="130*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Номер заказа" HorizontalAlignment="Left" Margin="41,31,0,0" VerticalAlignment="Top"/>
+        <Label Content="Название товара" HorizontalAlignment="Left" Margin="187,31,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label Content="Сотрудник" HorizontalAlignment="Left" Margin="127.587,31,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="tbNumberUPD" HorizontalAlignment="Left" Height="23" Margin="28,76,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbNameUPD" HorizontalAlignment="Left" Height="23" Margin="187,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="comboSTAFFUPD" ItemsSource="{Binding}" SelectedValuePath="Id" DisplayMemberPath="Surname" Margin="121.587,77,18,0" VerticalAlignment="Top" Width="120" IsEditable="True" Grid.Column="1"/>
+
+        <Button x:Name="btSaveUPD" Content="Сохранить изменения" HorizontalAlignment="Left" Margin="63,176,0,0" VerticalAlignment="Top" Width="180" Click="btSaveUPD_Click" Background="#FF44C514" Grid.ColumnSpan="2"/>
+        <Button x:Name="btCloseUPD" Content="Отмена" HorizontalAlignment="Left" Margin="71.587,176,0,0" VerticalAlignment="Top" Width="125" Click="btCloseUPD_Click" Background="#FFFF7F7F" Grid.Column="1"/>
+
+    </Grid>
+</Window>

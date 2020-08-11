@@ -15,7 +15,7 @@ namespace TestFunW
         public string Name { get; set; }
 
 
-        [Required]
+        //[Required]
         public int? StaffId { get; set; }
         public virtual Staff Staff { get; set; }
     }

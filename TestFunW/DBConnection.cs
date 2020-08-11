@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,15 +25,26 @@ namespace TestFunW
                 .HasMany(e => e.Subdivision1)
                .WithOptional(e => e.Staff1)
                 .HasForeignKey(e => e.StaffId);
+                
 
-           modelBuilder.Entity<Subdivision>()
+
+
+
+            modelBuilder.Entity<Subdivision>()
                .Property(e => e.NameSubdivision)
                .IsFixedLength();
+
 
             modelBuilder.Entity<Subdivision>()
                .HasMany(e => e.Staff)
                .WithOptional(e => e.Subdivision)
                .HasForeignKey(e => e.SubdivisionId);
+               
+
+            
+
+
+
         }
 
     }

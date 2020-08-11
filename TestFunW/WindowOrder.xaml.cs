@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Common.CommandTrees;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,73 +23,99 @@ namespace TestFunW
     {
 
         DBConnection db;
+        
+
+       // int IdLocal;
         public WindowOrder()
         {
             InitializeComponent();
             bindCombo();
-        }
+            // comboSTAFF.ItemsSource = typeof(Staff).GetProperties();
 
-        public List<Staff> Emp { get; set; }
-        private void bindCombo()
+            
+
+        }
+        //связывем combobox с таблицей Staff для выбора сотрудника
+       public List<Staff> St { get; set; }
+       private void bindCombo()
         {
             using (db = new DBConnection())
             {
                 var item = db.Staff.ToList() ;
-                Emp = item;
-                DataContext = Emp;
+                St = item;
+                DataContext = St;
             }
         }
 
         private void btSave_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow main = Owner as MainWindow;
-            if (main != null)
-                using (db = new DBConnection())
-                {
+            if ((tbName.Text == "") || (tbNumber.Text == "") || (comboSTAFF.Text == ""))
+            {
+                MessageBox.Show("Не введено значение(я), проверка ввода значений!", "Ввод значения", MessageBoxButton.OK, MessageBoxImage.Error);
+                
 
-
-                    
-
-                    Order order = new Order();
-                   
-                    order.Number = tbNumber.Text;
-                    order.Name = tbName.Text;
-                    // l.Employer = comboSTAFF.Text;
-                    // order.StaffId = int.Parse(comboSTAFF.Text);
-
-                   // Staff second = new Staff();
-                   // second.Surname = comboSTAFF.Text;
-
-
-
-
-                    using (var transaction = db.Database.BeginTransaction())
+            }
+            else
+            {
+                MainWindow main = Owner as MainWindow;
+                if (main != null)
+                    using (db = new DBConnection())
                     {
 
-                        db.Order.Add(order);
-                        db.SaveChanges();
 
-                       // second.StaffId = (int)order.StaffId;
-                    
 
-                       // db.SaveChanges();
-                        transaction.Commit();
+
+
+                        Order order = new Order();
+
+                        order.Number = tbNumber.Text;
+                        order.Name = tbName.Text;
+
+                        //Staff second = new Staff();
+                        // second.Surname = comboSTAFF.Text;
+
+                        Staff select = (from k in db.Staff
+                                        where k.Surname == comboSTAFF.Text
+                                        select k).Single();
+
+
+                        using (var transaction = db.Database.BeginTransaction())
+                        {
+
+                            db.Order.Add(order);
+                            db.SaveChanges();
+
+                            order.StaffId = select.StaffId;
+                            db.SaveChanges();
+
+
+                            transaction.Commit();
+
+                        }
 
                     }
 
-                }
 
 
-            MessageBox.Show("Данные внесены успешно!", "Запись в базу данных", MessageBoxButton.OK, MessageBoxImage.Asterisk);
-            main.UpdateData();
-        
 
-             //очистка полей после внесения данных
 
-             tbNumber.Clear();
-             tbName.Clear();
-            comboSTAFF.SelectedIndex = -1;
 
+
+
+
+
+
+                MessageBox.Show("Данные внесены успешно!", "Запись в базу данных", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                main.UpdateData();
+
+
+                //очистка полей после внесения данных
+
+                tbNumber.Clear();
+                tbName.Clear();
+                comboSTAFF.SelectedIndex = -1;
+
+            }
         }
 
         private void btClose_Click(object sender, RoutedEventArgs e)

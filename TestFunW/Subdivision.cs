@@ -10,18 +10,10 @@ namespace TestFunW
 {
    public  class Subdivision
     {
-     //   public Subdivision()
-     //   {
-     //       Staff = new HashSet<Staff>();
-     //   }
+
         [Key]
         public int SubdivisionId { get; set; }
         public string NameSubdivision { get; set; }
-
-
-        // Ссылка на сотрудников
-
-         //[Required]
         
         public int? StaffId { get; set; }
 
